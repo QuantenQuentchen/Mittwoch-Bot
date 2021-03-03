@@ -12,18 +12,19 @@ def NullVoid():
     return False
 
 
+random.seed()
 Prefix = "M!"
 Lasties = defaultdict(NullVoid)
 Channels = defaultdict(NullVoid)
-Channels[776823258385088552] = 803731340154503250  # Ghost Cave
+Channels[776823258385088552] = False  # 803731340154503250  # Ghost Cave
 Channels[701051127612964964] = 806312041697509426  # Test Channel
-"""""
+#  """""
 pickle.dump(Channels, open("Channels.p", "wb"))
 pickle.dump(Lasties, open("Lasties.p", "wb"))
-"""""
+#  """""
 Channels = pickle.load(open("Channels.p", "rb"))
 Lasties = pickle.load(open("Lasties.p", "rb"))
-TOKEN = "ODAzNzI5NDQ4NzY2NTM3NzY4.YBCBYQ.5Pc5T3sxDqVvJ56VXXXgeoUpoQo"
+TOKEN = pickle.load(open("Token.p", "rb"))
 src = "Mittwoch/"
 client = commands.Bot(command_prefix=Prefix, description="Extrem wichtiger Bot für extrem wichtige Sachen!")
 
@@ -41,7 +42,7 @@ async def on_ready():
 @client.event
 async def on_guild_join(guild):
     return
-#  await send_message
+
 
 
 @client.command()
@@ -74,31 +75,34 @@ async def Channel_Check():
         pickle.dump(Channels, open("Channels.p", "rb"))
 
 
-@tasks.loop(minutes=5)
+@tasks.loop(minutes=1)
 async def Mittwoch_check():
     await client.wait_until_ready()
     global Channels
     global Lasties
     activity = discord.Game(name="Professionel am Existieren.")
     for guilds in client.guilds:
-        if Channels[guilds.id]:
+        if not guilds:
             break
         else:
             print("checking...")
             Lasties = pickle.load(open("Lasties.p", "rb"))
-            Gemittwocht = Lasties[guilds.id]
-            pickle.dump(Lasties, open("Lasties.p", "wb"))
             activity = discord.Game(name="Professionel am Existieren.")
-            print(f"der letzte Mittwoch war am :{Gemittwocht}")
+            print(f"der letzte Mittwoch war am :{Lasties[guilds.id]}")
             if time.strftime("%A") != "Wednesday":
                 "Kein Mittwoch"
-            if time.strftime("%A") == "Wednesday" and Gemittwocht != time.strftime("%W,%Y"):
-                activity = discord.Game(name="Am Mittwochen.", type=3)
+            if time.strftime("%A") == "Wednesday" and Lasties[guilds.id] != time.strftime("%W,%Y"):
+                activity = discord.Game(name="mit seinem Penis.", type=3)
                 channel = client.get_channel(Channels[guilds.id])
-                await channel.send(content="@everyone ES IST Mittwoch meine Kerle",
+                print(f"{guilds.name}")
+                try:
+                    await channel.send(content="@everyone ES IST Mittwoch meine Kerle",
                                    file=discord.File(f"Mittwoch/Mittwoch{random.randint(1, file_count)}.png"))
-                Lasties[guilds.id] = "%W,%Y"
-                file.close()
+                    Lasties[guilds.id] = time.strftime("%W,%Y")
+                except AttributeError:
+                    pass
+                pickle.dump(Lasties, open("Lasties.p", "wb"))
+                print(f"Es wurde auf dem Server {guilds.name}({guilds.id}) am {Lasties[guilds.id]} Gemittwocht")
     await client.change_presence(activity=activity)
 
 
