@@ -25,7 +25,7 @@ Channels = {776823258385088552: 803731340154503250, 701051127612964964: 80631204
 #  Lasties[776823258385088552] = False  # 803731340154503250  # Ghost Cave
 #  Lasties[701051127612964964] = False  # Test Channel
 #  """""
-#  pickle.dump(Channels, open("Channels.p", "wb"))
+pickle.dump(Channels, open("Channels.p", "wb"))
 #  pickle.dump(Lasties, open("Lasties.p", "wb"))
 #  """""
 Channels = pickle.load(open("Channels.p", "rb"))
