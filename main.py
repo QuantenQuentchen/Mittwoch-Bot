@@ -89,9 +89,9 @@ async def Mittwoch_check():
             Lasties = pickle.load(open("Lasties.p", "rb"))
             activity = discord.Game(name="Professionel am Existieren.")
             print(f"der letzte Mittwoch war am :{Lasties[guilds.id]}")
-            if time.strftime("%A") != "Wednesday":
+            if time.strftime("%A") != "Friday":
                 "Kein Mittwoch"
-            if time.strftime("%A") == "Wednesday" and Lasties[guilds.id] != time.strftime("%W,%Y"):
+            if time.strftime("%A") == "Friday" and Lasties[guilds.id] != time.strftime("%W,%Y"):
                 activity = discord.Game(name="mit seinem Penis.", type=3)
                 channel = client.get_channel(Channels[guilds.id])
                 print(f"{guilds.name}")
