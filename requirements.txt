@@ -2,3 +2,4 @@ discord
 PyNaCl
 async-timeout
 dnspython
+dill

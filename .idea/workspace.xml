@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1bf8641d-d3c5-4af3-a5c6-d45ce7e1c654" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Channels.p" beforeDir="false" afterPath="$PROJECT_DIR$/Channels.p" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +105,10 @@
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
     <state x="2370" y="177" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1440.860/0.0.1920.1040@1920.0.1440.860" timestamp="1614728488399" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1615508730329">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1615508730329" />
     <state x="2475" y="227" key="FileChooserDialogImpl" timestamp="1614814273086">
       <screen x="1920" y="0" width="1440" height="860" />
     </state>

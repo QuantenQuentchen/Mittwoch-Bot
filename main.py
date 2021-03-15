@@ -6,6 +6,7 @@ import os
 import os.path
 import pickle
 from collections import defaultdict
+import dill
 
 
 def NullVoid():
