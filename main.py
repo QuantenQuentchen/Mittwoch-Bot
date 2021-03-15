@@ -15,10 +15,6 @@ def NullVoid():
 
 random.seed()
 Prefix = "M!"
-#  Lasties = defaultdict(NullVoid)
-#  Channels = defaultdict(NullVoid)
-#  Lasties = {}
-#  """""
 Channels = {776823258385088552: 803731340154503250, 701051127612964964: 806312041697509426}
 #  """""
 #  Channels[701051127612964964] = 806312041697509426  # Test Channel
