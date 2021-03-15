@@ -1,0 +1,10 @@
+tree master:
+
+.idea/
+Channels.p
+Lasties.p
+Mittwoch/
+Procfile
+Token.p
+main.py
+requirements.txt
