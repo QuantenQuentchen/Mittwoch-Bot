@@ -111,7 +111,7 @@ async def Mittwoch_check():
                 await Botmember.add_roles(role, reason="Weil es Mittwoch ist.")
         else:
             await client.change_presence(activity=discord.Game(name="das ewige Wartespiel"))
-            await Botmember.remove_roles(role, reason="Es ist nicht mehr Mittwoch")
+            await Botmember.remove_roles(role, reason="Es ist nicht mehr Mittwoch.")
 
 
 Mittwoch_check.start()
