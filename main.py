@@ -23,7 +23,9 @@ Channel = {
     701051127612964964: 806312041697509426  # Test Nils
 }
 src = "Mittwoch/"
-client = commands.Bot(command_prefix=Prefix, description="Extrem wichtiger Bot für extrem wichtige Sachen!")
+intents = discord.Intents().default()
+intents.members = True
+client = commands.Bot(command_prefix=Prefix, description="Extrem wichtiger Bot für extrem wichtige Sachen!", intents=intents)
 Delemiter = ";:;"
 role_name = "Mittwoch⠀Boii"
 
@@ -94,12 +96,12 @@ async def Mittwoch_Change(ctx):
         print(e)
 """""
 
-
-@tasks.loop(minutes=60)
+@tasks.loop(minutes=0)
 async def Mittwoch_check():
     await client.wait_until_ready()
     for guilds in client.guilds:
         Botmember = get(guilds.members, id=client.user.id)
+        print(Botmember.id)
         role = get(guilds.roles, name=role_name)
         if time.strftime("%A") == "Wednesday":
             if role in member.roles:
@@ -112,6 +114,7 @@ async def Mittwoch_check():
         else:
             await client.change_presence(activity=discord.Game(name="das ewige Wartespiel"))
             await Botmember.remove_roles(role, reason="Es ist nicht mehr Mittwoch.")
+
 
 
 Mittwoch_check.start()
