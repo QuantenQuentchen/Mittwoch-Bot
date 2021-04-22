@@ -1,6 +1,8 @@
 import discord
 import time
+from datetime import datetime as dt
 from discord.ext import commands, tasks
+from discord.utils import get
 import random
 import os
 import os.path
@@ -16,15 +18,19 @@ def NullVoid():
 random.seed()
 Prefix = "M!"
 TOKEN = pickle.load(open("Token.p", "rb"))
-DATA = {}
+Channel = {
+    776823258385088552: 803731340154503250,  # GhostCave
+    701051127612964964: 806312041697509426  # Test Nils
+}
 src = "Mittwoch/"
 client = commands.Bot(command_prefix=Prefix, description="Extrem wichtiger Bot für extrem wichtige Sachen!")
 Delemiter = ";:;"
+role_name = "Mittwoch⠀Boii"
 
 for files in os.walk(src):
     file_count = len(files)
 
-
+"""
 async def DisSafe(Object):
     channel = client.get_channel(821116383713951756)
     Returnstring = ""
@@ -48,21 +54,20 @@ async def DisLoad():
                 return ReturnObject
             except Exception as e:
                 print(e)
+"""
 
 
 @client.event
 async def on_ready():
+    global role
     for guilds in client.guilds:
-        global Data
-        Data = await DisLoad()
-        #  global Data
-        try:
-            print(f"Connected to {guilds.name}({guilds.id}) der Mittwochschannel ist: {Data[guilds.id]['Channels']}")
-            await DisSafe(Data)
-        except Exception as e:
-            print(e)
+        check_for_duplicate = get(guilds.roles, name=role_name)
+        if check_for_duplicate is None:
+            role = await guilds.create_role(name=role_name)
+    print("Done")
 
 
+"""""
 @client.command()
 @commands.has_permissions(administrator=True)
 async def Mittwoch_Channel(ctx):
@@ -87,55 +92,27 @@ async def Mittwoch_Change(ctx):
         await DisSafe(Data)
     except Exception as e:
         print(e)
-
-
-@tasks.loop(hours=2)
-async def Channel_Check():
-    global Data
-    for guilds in client.guilds:
-        print(f"{guilds.name} == {guilds.id}")
-        await DisSafe(Data)
+"""""
 
 
 @tasks.loop(minutes=60)
 async def Mittwoch_check():
     await client.wait_until_ready()
-    global Data
-    global Channels
-    global Lasties
-    activity = discord.Game(name="Professionel am Existieren.")
     for guilds in client.guilds:
-        try:
-            print("checking...")
-            Data = await DisLoad()
-            activity = discord.Game(name="Professionel am Existieren.")
-            print(f"der letzte Mittwoch war am :{Data[guilds.id]['Lasties']}")
-            if time.strftime("%A") == "Wednesday" and Data[guilds.id]['Lasties'] != time.strftime("%W,%Y"):
-                try:
-                    activity = discord.Game(name="mit seinem Penis.", type=3)
-                    channel = client.get_channel(Data[guilds.id]['Channels'])
-                    print(f"{guilds.name}")
-                except Exception as e:
-                    print(e)
-                try:
-                    await channel.send(content="@everyone ES IST Mittwoch meine Kerle",
-                                       file=discord.File(f"Mittwoch/Mittwoch{random.randint(1, file_count)}.png"))
-                    print(guilds.name, Data[guilds.id]['Lasties'])
-                    Data[guilds.id]['Lasties'] = time.strftime("%W,%Y")
-                    print(time.strftime("%W,%Y"))
-                    print(Data[guilds.id]['Lasties'])
-                    await DisSafe(Data)
-                except AttributeError:
-                    pass
-            elif time.strftime("%A") != "Wednesday":
-                "Kein Mittwoch"
-                await DisSafe(Data)
-            print(f"Es wurde auf dem Server {guilds.name}({guilds.id}) am {Data[guilds.id]['Lasties']} Gemittwocht")
-        except Exception as e:
-            print(e)
-    await client.change_presence(activity=activity)
+        Botmember = get(guilds.members, id=client.user.id)
+        role = get(guilds.roles, name=role_name)
+        if time.strftime("%A") == "Wednesday":
+            if role in member.roles:
+                channel = client.get_channel(Channels[guilds.id])
+                await client.change_presence(
+                    activity=discord.Activity(type=discord.ActivityType.watching, name="lustige Mittwoch Memes"))
+                await channel.send(content="@everyone ES IST Mittwoch meine Kerle",
+                                   file=discord.File(f"Mittwoch/Mittwoch{random.randint(1, file_count)}.png"))
+                await Botmember.add_roles(role, reason="Weil es Mittwoch ist.")
+        else:
+            await client.change_presence(activity=discord.Game(name="das ewige Wartespiel"))
+            await Botmember.remove_roles(role, reason="Es ist nicht mehr Mittwoch")
 
 
-Channel_Check.start()
 Mittwoch_check.start()
 client.run(TOKEN)
