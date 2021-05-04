@@ -19,7 +19,7 @@ random.seed()
 Prefix = "M!"
 TOKEN = pickle.load(open("Token.p", "rb"))
 Channel = {
-    776823258385088552: 803731340154503250,  # GhostCave
+    # 776823258385088552: 803731340154503250,  # GhostCave
     701051127612964964: 806312041697509426  # Test Nils
 }
 src = "Mittwoch/"
@@ -53,9 +53,9 @@ async def Mittwoch_check():
         role = get(guilds.roles, name=role_name)
         if time.strftime("%A") == "Wednesday":
             print("Ahh yes meine Kerle")
-            if role not in member.roles:
-                print("Mittwoch war schon meine Kerle")
-                channel = client.get_channel(Channels[guilds.id])
+            if role not in Botmember.roles:
+                print("Mittwoch war noch nicht Meine Kerle")
+                channel = client.get_channel(Channel[guilds.id])
                 await client.change_presence(
                     activity=discord.Activity(type=discord.ActivityType.watching, name="lustige Mittwoch Memes"))
                 await channel.send(content="@everyone ES IST Mittwoch meine Kerle",

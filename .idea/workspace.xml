@@ -21,12 +21,18 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bf8641d-d3c5-4af3-a5c6-d45ce7e1c654" name="Default Changelist" comment="Cleared Token">
+    <list default="true" id="1bf8641d-d3c5-4af3-a5c6-d45ce7e1c654" name="Default Changelist" comment="Updatet Token">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Token.p" beforeDir="false" afterPath="$PROJECT_DIR$/Token.p" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +47,40 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="main" />
+              </list>
+            </value>
+          </entry>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/main" />
+                <branch-info repo="$PROJECT_DIR$" source="heroku/main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1nwN9weGp3FWpSoKTT8V3wXAp9B" />
@@ -50,9 +90,51 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Python.main">
+    <configuration name="Test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Mittwoch(2.0)" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Troll" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Mittwoch(2.0)" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Troll.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Mittwoch(2.0)" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -97,6 +179,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Troll" />
+        <item itemvalue="Python.Test" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.test" />
@@ -119,7 +203,63 @@
       <option name="project" value="LOCAL" />
       <updated>1615832958921</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Updatet Token">
+      <created>1615833738217</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1615833738217</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Just abusing Discord Nothing to see here">
+      <created>1615973093333</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1615973093334</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fixed read-only issue by using roles">
+      <created>1619118773217</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619118773218</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fixed read-only issue by using roles, Man fuck branches">
+      <created>1619118930869</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1619118930869</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Cleaned up a bit">
+      <created>1619119038358</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1619119038358</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fuck Intents">
+      <created>1619119881251</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1619119881251</updated>
+    </task>
+    <task id="LOCAL-00008" summary="No Honestly Fuck Intents">
+      <created>1619120012840</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1619120012840</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fixed Bool stuff">
+      <created>1620166238524</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1620166238524</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -127,15 +267,36 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Cleared Token" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleared Token" />
+    <MESSAGE value="Updatet Token" />
+    <MESSAGE value="Just abusing Discord Nothing to see here" />
+    <MESSAGE value="Fixed read-only issue by using roles" />
+    <MESSAGE value="Fixed read-only issue by using roles, Man fuck branches" />
+    <MESSAGE value="Cleaned up a bit" />
+    <MESSAGE value="Fuck Intents" />
+    <MESSAGE value="No Honestly Fuck Intents" />
+    <MESSAGE value="Fixed Bool stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Bool stuff" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2266" y="108" key="#Inspections" timestamp="1614729012229">
@@ -150,6 +311,10 @@
       <screen x="1920" y="0" width="1440" height="860" />
     </state>
     <state x="2370" y="177" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1440.860/0.0.1920.1040@1920.0.1440.860" timestamp="1614728488399" />
+    <state x="425" y="59" key="CommitChangelistDialog2" timestamp="1615833604704">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="425" y="59" key="CommitChangelistDialog2/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1615833604704" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1615508730329">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -159,49 +324,50 @@
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1612309082425" />
     <state x="2475" y="227" key="FileChooserDialogImpl/1920.0.1440.860/0.0.1920.1040@1920.0.1440.860" timestamp="1614814273086" />
-    <state width="1899" height="184" key="GridCell.Tab.0.bottom" timestamp="1615833410893">
+    <state width="1899" height="146" key="GridCell.Tab.0.bottom" timestamp="1619120615293">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="184" key="GridCell.Tab.0.bottom/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1615833410893" />
-    <state width="1065" height="137" key="GridCell.Tab.0.bottom/1920.0.1440.860/0.0.1920.1040@1920.0.1440.860" timestamp="1614978539126" />
-    <state width="1899" height="184" key="GridCell.Tab.0.center" timestamp="1615833410893">
+    <state width="1899" height="146" key="GridCell.Tab.0.bottom/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1619120615293" />
+    <state width="1419" height="125" key="GridCell.Tab.0.bottom/1920.0.1440.860/0.0.1920.1040@1920.0.1440.860" timestamp="1619116746901" />
+    <state width="1899" height="146" key="GridCell.Tab.0.center" timestamp="1619120615293">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="184" key="GridCell.Tab.0.center/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1615833410893" />
-    <state width="1065" height="137" key="GridCell.Tab.0.center/1920.0.1440.860/0.0.1920.1040@1920.0.1440.860" timestamp="1614978539126" />
-    <state width="1899" height="184" key="GridCell.Tab.0.left" timestamp="1615833410892">
+    <state width="1899" height="146" key="GridCell.Tab.0.center/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1619120615293" />
+    <state width="1419" height="125" key="GridCell.Tab.0.center/1920.0.1440.860/0.0.1920.1040@1920.0.1440.860" timestamp="1619116746901" />
+    <state width="1899" height="146" key="GridCell.Tab.0.left" timestamp="1619120615293">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="184" key="GridCell.Tab.0.left/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1615833410892" />
-    <state width="1065" height="137" key="GridCell.Tab.0.left/1920.0.1440.860/0.0.1920.1040@1920.0.1440.860" timestamp="1614978539126" />
-    <state width="1899" height="184" key="GridCell.Tab.0.right" timestamp="1615833410893">
+    <state width="1899" height="146" key="GridCell.Tab.0.left/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1619120615293" />
+    <state width="1419" height="125" key="GridCell.Tab.0.left/1920.0.1440.860/0.0.1920.1040@1920.0.1440.860" timestamp="1619116746901" />
+    <state width="1899" height="146" key="GridCell.Tab.0.right" timestamp="1619120615293">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="184" key="GridCell.Tab.0.right/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1615833410893" />
-    <state width="1065" height="137" key="GridCell.Tab.0.right/1920.0.1440.860/0.0.1920.1040@1920.0.1440.860" timestamp="1614978539126" />
-    <state width="1396" height="272" key="GridCell.Tab.1.bottom" timestamp="1612301037633">
+    <state width="1899" height="146" key="GridCell.Tab.0.right/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1619120615293" />
+    <state width="1419" height="125" key="GridCell.Tab.0.right/1920.0.1440.860/0.0.1920.1040@1920.0.1440.860" timestamp="1619116746901" />
+    <state width="1899" height="345" key="GridCell.Tab.1.bottom" timestamp="1615974401363">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1396" height="272" key="GridCell.Tab.1.bottom/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1612301037633" />
-    <state width="1396" height="272" key="GridCell.Tab.1.center" timestamp="1612301037633">
+    <state width="1899" height="345" key="GridCell.Tab.1.bottom/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1615974401363" />
+    <state width="1899" height="345" key="GridCell.Tab.1.center" timestamp="1615974401363">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1396" height="272" key="GridCell.Tab.1.center/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1612301037633" />
-    <state width="1396" height="272" key="GridCell.Tab.1.left" timestamp="1612301037633">
+    <state width="1899" height="345" key="GridCell.Tab.1.center/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1615974401363" />
+    <state width="1899" height="345" key="GridCell.Tab.1.left" timestamp="1615974401363">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1396" height="272" key="GridCell.Tab.1.left/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1612301037633" />
-    <state width="1396" height="272" key="GridCell.Tab.1.right" timestamp="1612301037633">
+    <state width="1899" height="345" key="GridCell.Tab.1.left/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1615974401363" />
+    <state width="1899" height="345" key="GridCell.Tab.1.right" timestamp="1615974401363">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1396" height="272" key="GridCell.Tab.1.right/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1612301037633" />
-    <state x="2141" y="75" key="SettingsEditor" timestamp="1614814376243">
-      <screen x="1920" y="0" width="1440" height="860" />
+    <state width="1899" height="345" key="GridCell.Tab.1.right/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1615974401363" />
+    <state x="295" y="91" width="1539" height="833" key="SettingsEditor" timestamp="1619120497300">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="295" y="91" width="1539" height="833" key="SettingsEditor/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1619120497300" />
     <state x="2141" y="75" key="SettingsEditor/1920.0.1440.860/0.0.1920.1040@1920.0.1440.860" timestamp="1614814376243" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1615832966421">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1619120576517">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1615832966421" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1440.860/0.0.1920.1040@0.0.1920.1040" timestamp="1619120576517" />
   </component>
 </project>
