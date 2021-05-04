@@ -47,11 +47,14 @@ async def on_ready():
 @tasks.loop(minutes=60)
 async def Mittwoch_check():
     await client.wait_until_ready()
+    print("Looking for Wednesday")
     for guilds in client.guilds:
         Botmember = get(guilds.members, id=client.user.id)
         role = get(guilds.roles, name=role_name)
         if time.strftime("%A") == "Wednesday":
-            if role in member.roles:
+            print("Ahh yes meine Kerle")
+            if role not in member.roles:
+                print("Mittwoch war schon meine Kerle")
                 channel = client.get_channel(Channels[guilds.id])
                 await client.change_presence(
                     activity=discord.Activity(type=discord.ActivityType.watching, name="lustige Mittwoch Memes"))
