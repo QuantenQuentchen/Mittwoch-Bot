@@ -1,5 +1,6 @@
-discord
+discord~=1.0.1
 PyNaCl
 async-timeout
 dnspython
-dill
+dill~=0.3.3
+pytz~=2021.1

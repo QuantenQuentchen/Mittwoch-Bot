@@ -1,6 +1,7 @@
 import discord
 import time
 from datetime import datetime as dt
+import pytz
 from discord.ext import commands, tasks
 from discord.utils import get
 import random
@@ -13,7 +14,6 @@ import dill
 
 def NullVoid():
     return False
-
 
 random.seed()
 Prefix = "M!"
@@ -46,12 +46,13 @@ async def on_ready():
 
 @tasks.loop(minutes=60)
 async def Mittwoch_check():
+    random.seed()
     await client.wait_until_ready()
     print("Looking for Wednesday")
     for guilds in client.guilds:
         Botmember = get(guilds.members, id=client.user.id)
         role = get(guilds.roles, name=role_name)
-        if time.strftime("%A") == "Wednesday":
+        if dt.now(tz=pytz.timezone("Europe/Amsterdam")).weekday() == 2:
             print("Ahh yes meine Kerle")
             if role not in Botmember.roles:
                 print("Mittwoch war noch nicht Meine Kerle")
