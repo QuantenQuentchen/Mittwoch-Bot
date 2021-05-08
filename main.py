@@ -1,19 +1,16 @@
 import discord
-import time
 from datetime import datetime as dt
 import pytz
 from discord.ext import commands, tasks
 from discord.utils import get
 import random
-import os
 import os.path
 import pickle
-from collections import defaultdict
-import dill
 
 
 def NullVoid():
     return False
+
 
 random.seed()
 Prefix = "M!"
