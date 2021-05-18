@@ -16,7 +16,7 @@ random.seed()
 Prefix = "M!"
 TOKEN = pickle.load(open("Token.p", "rb"))
 Channel = {
-    # 776823258385088552: 803731340154503250,  # GhostCave
+    776823258385088552: 803731340154503250,  # GhostCave
     701051127612964964: 806312041697509426  # Test Nils
 }
 src = "Mittwoch/"
