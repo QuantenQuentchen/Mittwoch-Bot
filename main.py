@@ -8,21 +8,20 @@ import os.path
 import pickle
 import Database
 from discord_slash import SlashCommand, SlashContext, SlashCommandOptionType
+import requests
+
 Fucking = True
 random.seed()
 Prefix = "M!"
 TOKEN = pickle.load(open("Token.p", "rb"))
 src = "Mittwoch/"
 intents = discord.Intents().all()
-# intents.members = True
 client = commands.Bot(command_prefix=Prefix,
                       description="Verkündet den wichtigsten Tag.",
                       intents=intents)  # , help_command=PrettyHelp(no_category="Interactions"))
 
 slash = SlashCommand(client, sync_commands=True)
 
-for files in os.walk(src):
-    file_count = len(files)
 SlashOption = [
     {
         "name": f"channel",
@@ -44,17 +43,20 @@ async def on_ready():
 
     print("Done")
 
+
 @client.event
 async def on_message(message):
     if Fucking:
         if "fucking" in message.content.lower():
             await message.reply("Die Stadt ?")
 
+
 @client.command(pass_context=True)  # , description=Description, name=self.command, aliases=self.aliases)
 async def Channel(ctx):
     Chan = client.get_channel(Database.getMitChan(ctx.guild.id))
     await ctx.send(
-        f"Der aktuelle Mittwoch Channel ist: {Chan.mention}. \n Du kannst ihn ändern mit {Prefix}SetChannel #[Neuer Channel].")
+        f"Der aktuelle Mittwoch Channel ist: {Chan.mention}. \n Du kannst ihn ändern mit {Prefix}SetChannel #[Neuer "
+        f"Channel].")
 
 
 @client.command(pass_context=True)  # , description=Description, name=self.command, aliases=self.aliases)
@@ -78,9 +80,8 @@ async def SetChannel(ctx: SlashContext, channel):
     await ctx.send(f"Der neue Mittwoch Channel ist: {Chan.mention}.")
 
 
-@tasks.loop(minutes=60)
+@tasks.loop(minutes=10)
 async def Mittwoch_check():
-    random.seed()
     await client.wait_until_ready()
     print("Looking for Wednesday")
     for guilds in client.guilds:
@@ -100,7 +101,7 @@ async def Mittwoch_check():
                 await client.change_presence(
                     activity=discord.Activity(type=discord.ActivityType.watching, name="lustige Mittwoch Memes"))
                 await channel.send(content="@everyone ES IST Mittwoch meine Kerle",
-                                   file=discord.File(f"Mittwoch/Mittwoch{random.randint(1, file_count)}.png"))
+                                   file=discord.File(f"Mittwoch/Mittwoch{str(Database.rando())}.png"))
                 Database.UpdateLastTime(guilds.id, dt.now(tz=pytz.timezone("Europe/Amsterdam")).strftime("%e.%m.%y"))
         else:
             await client.change_presence(activity=discord.Game(name="das ewige Wartespiel"))
