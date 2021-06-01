@@ -34,7 +34,7 @@ def getMitChan(ServerID):
 
 
 def UpdateMitChan(ServerID, MitChan):
-    cur.execute(f"UPDATE main SET WedChan = {MitChan} WHERE ServerID = {ServerID}")
+    cur.execute(f"UPDATE main SET WedChan = '{MitChan}' WHERE ServerID = {ServerID}")
     con.commit()
     return True
 
@@ -57,7 +57,7 @@ def rando():
         file_count = len(files)
     GET = requests.get(
         f"https://www.random.org/integers/?num=1&min=1&max=35&col=1&base=10&format=plain&rnd=new")
-    return GET.text
+    return GET.text.split("\n")[0]
 
 
 if __name__ == "__main__":
