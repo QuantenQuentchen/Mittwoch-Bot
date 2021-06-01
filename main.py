@@ -87,23 +87,25 @@ async def Mittwoch_check():
     for guilds in client.guilds:
         if dt.now(tz=pytz.timezone("Europe/Amsterdam")).weekday() == 2:
             print("Ahh yes meine Kerle")
-            print(guilds.text_channels)
             if dt.now(tz=pytz.timezone("Europe/Amsterdam")).strftime("%e.%m.%y") != Database.getLast(guilds.id):
                 print("Zeit für ein nices Meme")
                 MitChanID = Database.getMitChan(guilds.id)
-                if MitChanID is not None:
-                    channel = client.get_channel(MitChanID)
-                else:
-                    await guilds.owner.send("Grüß dich Mein Kerl. Leider konnte ich die frohe Botschaft des "
+                try:
+                    if MitChanID is not None:
+                        channel = client.get_channel(MitChanID)
+                    else:
+                        await guilds.owner.send("Grüß dich Mein Kerl. Leider konnte ich die frohe Botschaft des "
                                             "Mittwoches nicht verkünden, da ich nicht weiß wo ich das machen sollte. "
                                             "Du kannst dass ändern mit dem Befehl M/MitChan oder einem Schrägstrich "
                                             "Befehl.\n Mit freundlichen Grüßen Der Mittwochbot.")
-                    continue
-                await client.change_presence(
-                    activity=discord.Activity(type=discord.ActivityType.watching, name="lustige Mittwoch Memes"))
-                await channel.send(content="@everyone Es ist Mittwoch meine Kerle",
+                        continue
+                    await client.change_presence(
+                        activity=discord.Activity(type=discord.ActivityType.watching, name="lustige Mittwoch Memes"))
+                    await channel.send(content="@everyone Es ist Mittwoch meine Kerle",
                                    file=discord.File(f"Mittwoch/Mittwoch{str(Database.rando())}.png"))
-                Database.UpdateLastTime(guilds.id, dt.now(tz=pytz.timezone("Europe/Amsterdam")).strftime("%e.%m.%y"))
+                    Database.UpdateLastTime(guilds.id, dt.now(tz=pytz.timezone("Europe/Amsterdam")).strftime("%e.%m.%y"))
+                except AttributeError:
+                    Database.UpdateMitChan(guilds.id, 0)
         else:
             await client.change_presence(activity=discord.Game(name="das ewige Wartespiel"))
 
