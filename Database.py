@@ -20,8 +20,8 @@ cur = con.cursor()
 def getLast(ServerID):
     cur.execute(f"SELECT LastTime FROM main WHERE ServerID IN({ServerID})")
     try:
-        return cur.fetchall()[0][0]
-    except IndexError:
+        return cur.fetchall()[0][0]#.replace(" ","")
+    except IndexError or AttributeError:
         return cur.fetchall()
 
 
