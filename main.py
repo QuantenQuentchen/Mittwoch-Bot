@@ -61,26 +61,40 @@ async def Channel(ctx):
 
 @client.command(pass_context=True)  # , description=Description, name=self.command, aliases=self.aliases)
 async def SetChannel(ctx, channel: discord.TextChannel):
-    Database.UpdateMitChan(ctx.guild.id, channel.id)
+    text_channel_list = []
     Chan = client.get_channel(Database.getMitChan(ctx.guild.id))
-    await ctx.send(f"Der neue Mittwoch Channel ist: {Chan.mention}.")
+    for channäl in ctx.guild.text_channels:
+        text_channel_list.append(channäl.id)
+    if channel.id in text_channel_list:
+        Database.UpdateMitChan(ctx.guild.id, channel.id)
+        await ctx.send(f"Der neue Mittwoch Channel ist: {Chan.mention}.")
+    else:
+        await ctx.send(f"Bitte benutze einen Channl der Existiert und auf den der Bot zugriff hat.\nDer Mittwoch "
+                       f"Channel bleibt {Chan.mention}")
 
 
-@slash.slash(guild_ids=[701051127612964964])
+@slash.slash(guild_ids=[701051127612964964,776823258385088552])
 async def Channel(ctx):
     Chan = client.get_channel(Database.getMitChan(ctx.guild.id))
     await ctx.send(
         f"Der aktuelle Mittwoch Channel ist: {Chan.mention}. \n Du kannst ihn ändern mit /SetChannel.")
 
 
-@slash.slash(guild_ids=[701051127612964964], options=SlashOption)  # ,aliases=self.aliases)
+@slash.slash(guild_ids=[701051127612964964,776823258385088552], options=SlashOption)  # ,aliases=self.aliases)
 async def SetChannel(ctx: SlashContext, channel):
-    Database.UpdateMitChan(ctx.guild.id, channel.id)
+    text_channel_list = []
     Chan = client.get_channel(Database.getMitChan(ctx.guild.id))
-    await ctx.send(f"Der neue Mittwoch Channel ist: {Chan.mention}.")
+    for channäl in ctx.guild.text_channels:
+        text_channel_list.append(channäl.id)
+    if channel.id in text_channel_list:
+        Database.UpdateMitChan(ctx.guild.id, channel.id)
+        await ctx.send(f"Der neue Mittwoch Channel ist: {Chan.mention}.")
+    else:
+        await ctx.send(f"Bitte benutze einen Channl der Existiert und auf den der Bot zugriff hat.\nDer Mittwoch "
+                       f"Channel bleibt {Chan.mention}")
 
 
-@tasks.loop(minutes=10)
+@tasks.loop(minutes=60)
 async def Mittwoch_check():
     await client.wait_until_ready()
     print("Looking for Wednesday")
@@ -94,10 +108,10 @@ async def Mittwoch_check():
                     if MitChanID is not None:
                         channel = client.get_channel(MitChanID)
                     else:
-                        await guilds.owner.send("Grüß dich Mein Kerl. Leider konnte ich die frohe Botschaft des "
-                                            "Mittwoches nicht verkünden, da ich nicht weiß wo ich das machen sollte. "
-                                            "Du kannst dass ändern mit dem Befehl M/MitChan oder einem Schrägstrich "
-                                            "Befehl.\n Mit freundlichen Grüßen Der Mittwochbot.")
+                        #await guilds.owner.send("Grüß dich Mein Kerl. Leider konnte ich die frohe Botschaft des "
+                         #                   "Mittwoches nicht verkünden, da ich nicht weiß wo ich das machen sollte. "
+                          #                  "Du kannst dass ändern mit dem Befehl M/MitChan oder einem Schrägstrich "
+                           #                 "Befehl.\n Mit freundlichen Grüßen Der Mittwochbot.")
                         continue
                     await client.change_presence(
                         activity=discord.Activity(type=discord.ActivityType.watching, name="lustige Mittwoch Memes"))
@@ -105,7 +119,8 @@ async def Mittwoch_check():
                                    file=discord.File(f"Mittwoch/Mittwoch{str(Database.rando())}.png"))
                     Database.UpdateLastTime(guilds.id, dt.now(tz=pytz.timezone("Europe/Amsterdam")).strftime("%e.%m.%y"))
                 except AttributeError:
-                    Database.UpdateMitChan(guilds.id, 0)
+                    pass
+                    #Database.UpdateMitChan(guilds.id, 0)
         else:
             await client.change_presence(activity=discord.Game(name="das ewige Wartespiel"))
 

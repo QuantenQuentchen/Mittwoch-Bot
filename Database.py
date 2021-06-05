@@ -18,31 +18,43 @@ cur = con.cursor()
 
 
 def getLast(ServerID):
-    cur.execute(f"SELECT LastTime FROM main WHERE ServerID IN({ServerID})")
     try:
-        return cur.fetchall()[0][0]#.replace(" ","")
-    except IndexError or AttributeError:
-        return cur.fetchall()
+        cur.execute(f"SELECT LastTime FROM main WHERE ServerID IN({ServerID})")
+        try:
+            return cur.fetchall()[0][0]#.replace(" ","")
+        except IndexError or AttributeError:
+            return cur.fetchall()
+    except Exception:
+        return False
 
 
 def getMitChan(ServerID):
-    cur.execute(f"SELECT WedChan FROM main WHERE ServerID IN({ServerID})")
     try:
-        return cur.fetchall()[0][0]
-    except IndexError:
-        return cur.fetchall()
+        cur.execute(f"SELECT WedChan FROM main WHERE ServerID IN({ServerID})")
+        try:
+            return cur.fetchall()[0][0]
+        except IndexError:
+            return cur.fetchall()
+    except Exception:
+        return False
 
 
 def UpdateMitChan(ServerID, MitChan):
-    cur.execute(f"UPDATE main SET WedChan = '{MitChan}' WHERE ServerID = {ServerID}")
-    con.commit()
-    return True
+    try:
+        cur.execute(f"UPDATE main SET WedChan = '{MitChan}' WHERE ServerID = {ServerID}")
+        con.commit()
+        return True
+    except Exception:
+        return False
 
 
 def UpdateLastTime(ServerID, LastTime):
-    cur.execute(f"UPDATE main SET LastTime = '{LastTime}' WHERE ServerID = {ServerID}")
-    con.commit()
-    return True
+    try:
+        cur.execute(f"UPDATE main SET LastTime = '{LastTime}' WHERE ServerID = {ServerID}")
+        con.commit()
+        return True
+    except Exception:
+        return False
 
 
 def AddEntry(ServerID):
