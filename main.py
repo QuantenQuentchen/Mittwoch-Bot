@@ -77,7 +77,7 @@ async def SetChannel(ctx, channel: discord.TextChannel):
 async def Channel(ctx):
     Chan = client.get_channel(Database.getMitChan(ctx.guild.id))
     await ctx.send(
-        f"Der aktuelle Mittwoch Channel ist: {Chan.mention}. \n Du kannst ihn ändern mit /SetChannel.")
+        f"Der aktuelle Mittwoch Channel ist: {Chan.mention}. \n Du kannst ihn mit /SetChannel ändern.")
 
 
 @slash.slash(guild_ids=[701051127612964964,776823258385088552], options=SlashOption)  # ,aliases=self.aliases)
@@ -114,7 +114,7 @@ async def Mittwoch_check():
                            #                 "Befehl.\n Mit freundlichen Grüßen Der Mittwochbot.")
                         continue
                     await client.change_presence(
-                        activity=discord.Activity(type=discord.ActivityType.watching, name="lustige Mittwoch Memes"))
+                        activity=discord.Game(name="Amogus"))
                     await channel.send(content="@everyone Es ist Mittwoch meine Kerle",
                                    file=discord.File(f"Mittwoch/Mittwoch{str(Database.rando())}.png"))
                     Database.UpdateLastTime(guilds.id, dt.now(tz=pytz.timezone("Europe/Amsterdam")).strftime("%e.%m.%y"))
@@ -122,7 +122,7 @@ async def Mittwoch_check():
                     pass
                     #Database.UpdateMitChan(guilds.id, 0)
         else:
-            await client.change_presence(activity=discord.Game(name="das ewige Wartespiel"))
+            await client.change_presence(activity=discord.Game(name="Fortnait"))
 
 
 Mittwoch_check.start()
