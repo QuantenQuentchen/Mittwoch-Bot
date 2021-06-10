@@ -39,6 +39,18 @@ def getMitChan(ServerID):
         return False
 
 
+def getAll():
+        cur.execute(f"SELECT * FROM main")
+        try:
+            return cur.fetchall()
+        except IndexError:
+            return cur.fetchall()
+
+
+def deleteAll():
+    cur.execute(f"DELETE FROM main")
+
+
 def UpdateMitChan(ServerID, MitChan):
     try:
         cur.execute(f"UPDATE main SET WedChan = '{MitChan}' WHERE ServerID = {ServerID}")
@@ -58,10 +70,11 @@ def UpdateLastTime(ServerID, LastTime):
 
 
 def AddEntry(ServerID):
-    if not cur.execute(f"SELECT EXISTS(SELECT 1 FROM main WHERE ServerID = {ServerID})"):
+    cur.execute(f"SELECT EXISTS(SELECT 1 FROM main WHERE ServerID = {ServerID})")
+    if not cur.fetchall()[0][0]:
         cur.execute(f"INSERT INTO main (ServerID, WedChan, LastTime) VALUES ({ServerID}, NULL, NULL);")
-    con.commit()
-    return True
+        con.commit()
+        return True
 
 
 def rando():

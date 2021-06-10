@@ -2,12 +2,13 @@ import discord
 from datetime import datetime as dt
 import pytz
 from discord.ext import commands, tasks
-from discord.utils import get
+import discord.utils
 import random
 import os.path
 import pickle
 import Database
 from discord_slash import SlashCommand, SlashContext, SlashCommandOptionType
+import discord_slash
 import requests
 
 Fucking = True
@@ -38,6 +39,11 @@ for guild in client.guilds:
 
 @client.event
 async def on_ready():
+    await slash.sync_all_commands(delete_from_unused_guilds=False)
+    await discord_slash.manage_commands.add_slash_command(bot_id=client.user.id, bot_token=TOKEN, guild_id=None,
+                                                          cmd_name="setchannel",
+                                                          description="Ändere den Mittwoch-Channel",
+                                                          options=SlashOption)
     for Guild in client.guilds:
         Database.AddEntry(Guild.id)
 
@@ -73,14 +79,14 @@ async def SetChannel(ctx, channel: discord.TextChannel):
                        f"Channel bleibt {Chan.mention}")
 
 
-@slash.slash(guild_ids=[701051127612964964,776823258385088552])
+@slash.slash(guild_ids=[701051127612964964, 776823258385088552])
 async def Channel(ctx):
     Chan = client.get_channel(Database.getMitChan(ctx.guild.id))
     await ctx.send(
         f"Der aktuelle Mittwoch Channel ist: {Chan.mention}. \n Du kannst ihn mit /SetChannel ändern.")
 
 
-@slash.slash(guild_ids=[701051127612964964,776823258385088552], options=SlashOption)  # ,aliases=self.aliases)
+@slash.slash(guild_ids=[701051127612964964, 776823258385088552], options=SlashOption)  # ,aliases=self.aliases)
 async def SetChannel(ctx: SlashContext, channel):
     text_channel_list = []
     Chan = client.get_channel(Database.getMitChan(ctx.guild.id))
@@ -108,19 +114,20 @@ async def Mittwoch_check():
                     if MitChanID is not None:
                         channel = client.get_channel(MitChanID)
                     else:
-                        #await guilds.owner.send("Grüß dich Mein Kerl. Leider konnte ich die frohe Botschaft des "
-                         #                   "Mittwoches nicht verkünden, da ich nicht weiß wo ich das machen sollte. "
-                          #                  "Du kannst dass ändern mit dem Befehl M/MitChan oder einem Schrägstrich "
-                           #                 "Befehl.\n Mit freundlichen Grüßen Der Mittwochbot.")
+                        # await guilds.owner.send("Grüß dich Mein Kerl. Leider konnte ich die frohe Botschaft des "
+                        #                   "Mittwoches nicht verkünden, da ich nicht weiß wo ich das machen sollte. "
+                        #                  "Du kannst dass ändern mit dem Befehl M/MitChan oder einem Schrägstrich "
+                        #                 "Befehl.\n Mit freundlichen Grüßen Der Mittwochbot.")
                         continue
                     await client.change_presence(
                         activity=discord.Game(name="Amogus"))
                     await channel.send(content="@everyone Es ist Mittwoch meine Kerle",
-                                   file=discord.File(f"Mittwoch/Mittwoch{str(Database.rando())}.png"))
-                    Database.UpdateLastTime(guilds.id, dt.now(tz=pytz.timezone("Europe/Amsterdam")).strftime("%e.%m.%y"))
+                                       file=discord.File(f"Mittwoch/Mittwoch{str(Database.rando())}.png"))
+                    Database.UpdateLastTime(guilds.id,
+                                            dt.now(tz=pytz.timezone("Europe/Amsterdam")).strftime("%e.%m.%y"))
                 except AttributeError:
                     pass
-                    #Database.UpdateMitChan(guilds.id, 0)
+                    # Database.UpdateMitChan(guilds.id, 0)
         else:
             await client.change_presence(activity=discord.Game(name="Fortnait"))
 
