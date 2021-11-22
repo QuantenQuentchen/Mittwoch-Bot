@@ -96,20 +96,19 @@ async def on_message(message):
     if message.author == client.user:
         return
     for word in CountList:
-        if message.author.id == 293443718319570964:
-            if word in message.content.lower():
-                WordCount = Database.getCount(message.author.id, word)
-                WordCount = WordCount + 1
-                WordText = f"Das ist dein {WordCount}. {word}."
-                ReplyFile = None
-                for key, val in ReplyDict.items():
-                    if WordCount == key:
-                        WordText = f"{WordText} {val}"
-                for key, val in ReplyPicDict.items():
-                    if WordCount == key:
-                        ReplyFile = discord.File(val)
-                await message.reply(WordText, mention_author=False, file=ReplyFile)
-                Database.UpdateCount(message.author.id, word, WordCount)
+        if word in message.content.lower():
+            WordCount = Database.getCount(message.author.id, word)
+            WordCount = WordCount + 1
+            WordText = f"Das ist dein {WordCount}. {word}."
+            ReplyFile = None
+            for key, val in ReplyDict.items():
+                if WordCount == key:
+                    WordText = f"{WordText} {val}"
+            for key, val in ReplyPicDict.items():
+                if WordCount == key:
+                    ReplyFile = discord.File(val)
+            await message.reply(WordText, mention_author=False, file=ReplyFile)
+            Database.UpdateCount(message.author.id, word, WordCount)
 
     if Troll:
         if message.author.id == VahloID:
