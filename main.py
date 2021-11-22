@@ -9,16 +9,9 @@ import os.path
 import pickle
 import Database
 from discord_slash import SlashCommand, SlashContext
-import youtube_dl
 import os
 import asyncio
-"""
-import spotify
-from spotify.oauth import Spo
-"""
 TOKEN = pickle.load(open("Token.p", "rb"))
-import spotipy
-from spotipy.oauth2 import SpotifyClientCredentials
 ClientID = "3bd576c93ab843e7b39205c9a2b3ef01"
 ClientSecret = "e6b86e71bd1b48adb096eae64c77daf2"
 
