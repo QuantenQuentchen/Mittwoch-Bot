@@ -12,8 +12,6 @@ from discord_slash import SlashCommand, SlashContext
 import os
 import asyncio
 TOKEN = pickle.load(open("Token.p", "rb"))
-ClientID = "3bd576c93ab843e7b39205c9a2b3ef01"
-ClientSecret = "e6b86e71bd1b48adb096eae64c77daf2"
 
 AwesomePlaylistUrl = "https://open.spotify.com/playlist/48zKTHYlstmgrRZSbRPIaY?si=097fa6be533d4f8e"
 ReplyDict = {1: "Aller Anfang ist schwer.",
