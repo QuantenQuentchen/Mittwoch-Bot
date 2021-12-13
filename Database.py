@@ -9,7 +9,9 @@ import pickle
 from discord_slash import SlashCommand, SlashContext, SlashCommandOptionType
 import requests
 import psycopg2
+import json
 
+tenorApikey = "E43EM9PO00HC"
 src = "Mittwoch/"
 
 Creds = pickle.load(open("Credentials.p", "rb"))
@@ -25,6 +27,43 @@ def createTable():
                 f"Counter BIGINT"
                 f");")
     con.commit()
+
+
+def createOptionTable():
+    cur.execute(f"CREATE TABLE Option"
+                f"("
+                f"ServerID BIGINT,"
+                f"Option TEXT,"
+                f"Toggle BOOL,"
+                f"Number BIGINT,"
+                f"Targets ARRAY"
+                f");")
+    con.commit()
+
+
+def getBoolOption(ServerID, Option):
+    BoolOptionQuery = "SELECT Toggle FROM Option WHERE ServerID = %s AND Option = %s;"
+    BoolOptionData = (ServerID, Option)
+
+    try:
+        cur.execute(BoolOptionQuery, BoolOptionData)
+        try:
+            return cur.fetchall()[0]
+        except IndexError:
+            return cur.fetchall()
+    except Exception as e:
+        print(f"getBoolOption({ServerID}, {Option}) raised {e}")
+
+
+def toggleBoolOption(ServerID, Option, Toggle):
+    BoolOptionUpdateRequest = "UPDATE Option SET Toggle = %s WHERE ServerID = %s AND Option = %s;"
+    BoolOptionUpdateData = (Toggle, ServerID, Option)
+
+    try:
+        cur.execute(BoolOptionUpdateRequest, BoolOptionUpdateData)
+        con.commit()
+    except Exception as e:
+        print(f"toggleBoolOption({ServerID}, {Option}, {Toggle}) raised {e}")
 
 
 def getCount(UserID, Countable):
@@ -124,6 +163,41 @@ def rando():
     GET = requests.get(
         f"https://www.random.org/integers/?num=1&min=1&max={file_count}&col=1&base=10&format=plain&rnd=new")
     return GET.text.split("\n")[0]
+
+
+def randoMod(MaxNum):
+    file_count = MaxNum
+    for files in os.walk(src):
+        file_count = len(files)
+    GET = requests.get(
+        f"https://www.random.org/integers/?num=1&min=0&max={file_count}&col=1&base=10&format=plain&rnd=new")
+    return int(GET.text.split("\n")[0])
+
+
+def getRandoTenorGif(searchTerm):
+    r = requests.get(
+        "https://g.tenor.com/v1/search?q=%s&key=%s&limit=%s" % (searchTerm, tenorApikey, 50))
+
+    if r.status_code == 200:
+        # load the GIFs using the urls for the smaller GIF sizes
+        top_8gifs = json.loads(r.content)
+        json.dump(json.loads(r.content), open("Testerino.json", "w"))
+        RandoNum = randoMod(49)
+        RandoNum = random.randint(0,49)
+        print(RandoNum)
+        try:
+            return top_8gifs["results"][RandoNum]["media"][0]["mediumgif"]["url"]
+        except IndexError:
+            try:
+                return top_8gifs["results"][RandoNum]["media"][0]["smallgif"]["url"]
+            except IndexError:
+                try:
+                    return top_8gifs["results"][RandoNum]["media"][0]["tinygif"]["url"]
+                except IndexError:
+                    return top_8gifs["results"][RandoNum]["media"][0]["nanogif"]["url"]
+
+    else:
+        return None
 
 
 if __name__ == "__main__":
