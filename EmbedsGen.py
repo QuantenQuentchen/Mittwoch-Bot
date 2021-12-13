@@ -85,6 +85,6 @@ def genOmoriPing(Targets: list, inits: list):
 def genGarciaEmbed():
     GarciaNum = random.randint(0, len(FunnyFact))
     returnEmbed = discord.embeds.Embed(title="Hier ist ein lustiger Fakt über Diego Garcia:")
-    returnEmbed.add_field(value=FunnyFact[GarciaNum], name=f"{GarciaNum+1}/{len(FunnyFact)}")
+    returnEmbed.add_field(value=FunnyFact[GarciaNum], name=f"Fakt:{GarciaNum+1}/{len(FunnyFact)}")
     returnEmbed.set_image(url=hotGarciaPics[random.randint(0, len(hotGarciaPics))])
     return returnEmbed
