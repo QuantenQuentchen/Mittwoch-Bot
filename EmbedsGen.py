@@ -17,7 +17,7 @@ AddingDict = {
 
 FunnyFact = [
     "Diego stammt ursprünglich aus dem altgriechischen und hebräischen. Der Name Diego leitet sich von dem hebräischen Namen Jakobus den Älteren ab, der im mittelalterlichen Spanisch als Sant Yago beziehungsweise Santiago bezeichnet wurde. Somit ist Diego die spanische Form von Jakob.",
-    "Leute die Diego heißen haben eine 100% höhere Chance das man sie mit der besten Insel aller Zeiten verwechselt als Leute die Dave, Dietmar oder Kevin heißen.",
+    "Leute die Diego heißen haben eine 100% höhere Chance das man sie mit der besten Insel aller Zeiten verwechselt im Vergleich Leute die Dave, Dietmar oder Kevin heißen.",
     "Der männliche Vorname Diego hat mehrere Bedeutungen. Diego kann als der Lehrende, der Betrüger, der vor Gott schützende oder der Fersenhalter übersetzt werden.",
     "Bekannte Persönlichkeiten mit dem Namen Diego: \n-Diego bekannt aus Ice Age (ja das ist der Film mit Valentin)\n -Diego Ramos bekannt als Schauspieler und besitzer des spanischten Namens in ganz Argentinien. \n -Und natürlich Diego Garcia das einzige Opfer des 2004 Tsunamis in Indonesien aus Diego Garcia.",
     "Der englische Wikipedia Eintrag ist 4.577 Fach so lang wie der deutsche. Außerdem kommt im englischen Artikel das Wort diego 208 aber das wort garcia nur 206 mal vor. Wer wohl Diego Diego ist ?",
