@@ -33,13 +33,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bf8641d-d3c5-4af3-a5c6-d45ce7e1c654" name="Default Changelist" comment="Die liest doch eh niemand LMAO">
+    <list default="true" id="1bf8641d-d3c5-4af3-a5c6-d45ce7e1c654" name="Default Changelist" comment="Ähm">
       <change afterPath="$PROJECT_DIR$/Test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpotiTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpotiTest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Token.p" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -450,7 +450,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639356593385</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Ähm">
+      <created>1639356983165</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1639356983165</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -479,7 +486,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Cleared Token" />
     <MESSAGE value="Updatet Token" />
     <MESSAGE value="Just abusing Discord Nothing to see here" />
     <MESSAGE value="Fixed read-only issue by using roles" />
@@ -504,6 +510,7 @@
     <MESSAGE value="Fixed Security Leak" />
     <MESSAGE value="Fixed Security Leak and Stupid" />
     <MESSAGE value="Die liest doch eh niemand LMAO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Die liest doch eh niemand LMAO" />
+    <MESSAGE value="Ähm" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ähm" />
   </component>
 </project>

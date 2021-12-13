@@ -76,17 +76,17 @@ async def on_ready():
     #                                                      cmd_name="setchannel",
     #                                                      description="Ändere den Mittwoch-Channel",
     #                                                      options=SlashOption)
-    EckeDerSchandeID = 826069082984939590
-    EckeDerSchande = client.get_channel(EckeDerSchandeID)
-    QuantiID = 293443718319570964  # 318299815786053633
-    Quanti = client.get_user(QuantiID)
-    print(type(Quanti))
+    #EckeDerSchandeID = 826069082984939590
+    #EckeDerSchande = client.get_channel(EckeDerSchandeID)
+    #QuantiID = 293443718319570964  # 318299815786053633
+    #Quanti = client.get_user(QuantiID)
+    #print(type(Quanti))
     for Guild in client.guilds:
         Quanti = Guild.get_member(QuantiID)
         Database.AddEntry(Guild.id)
     # await Quanti.move_to(EckeDerSchande)
-    for i in client.voice_clients:
-        print(i)
+    #for i in client.voice_clients:
+     #   print(i)
     # player = vc.create_ffmpeg_player('vuvuzela.mp3', after=lambda: print('done'))
     # player.start()
     '''
@@ -318,7 +318,7 @@ async def TestEmbed(ctx: SlashContext):
 
 
 @client.command(pass_context=True)
-async def TestEmbed(ctx: SlashContext):
+async def TestEmbed():
     nichtIchList = []
     ichList = []
     for ID in IDList:
@@ -341,14 +341,10 @@ async def Mittwoch_check():
                     if MitChanID is not None:
                         channel = client.get_channel(MitChanID)
                     else:
-                        # await guilds.owner.send("Grüß dich Mein Kerl. Leider konnte ich die frohe Botschaft des "
-                        #                   "Mittwoches nicht verkünden, da ich nicht weiß wo ich das machen sollte. "
-                        #                  "Du kannst dass ändern mit dem Befehl M/MitChan oder einem Schrägstrich "
-                        #                 "Befehl.\n Mit freundlichen Grüßen Der Mittwochbot.")
                         continue
                     await client.change_presence(
                         activity=discord.Game(name="Amogus"))
-                    await channel.send(content="@everyone Es ist Mittwoch meine Kerle",
+                    await channel.send(content="@everyone Es ist Mittwoch meine Kerle!!!!",
                                        file=discord.File(f"Mittwoch/Mittwoch{str(Database.rando())}.png"))
                     Database.UpdateLastTime(guilds.id,
                                             dt.now(tz=pytz.timezone("Europe/Amsterdam")).strftime("%e.%m.%y"))
@@ -360,6 +356,5 @@ async def Mittwoch_check():
             await client.change_presence(activity=discord.Game(name="SlashCommands"))
 
 
-# Mittwoch_check.start()
-
+Mittwoch_check.start()
 client.run(TOKEN)
