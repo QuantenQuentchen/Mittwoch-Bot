@@ -14,7 +14,7 @@ import asyncio
 
 import EmbedsGen
 
-TOKEN = pickle.load(open("../../BotUser/Token.p", "rb"))
+TOKEN = pickle.load(open("Token.p", "rb"))
 
 AwesomePlaylistUrl = "https://open.spotify.com/playlist/48zKTHYlstmgrRZSbRPIaY?si=097fa6be533d4f8e"
 ReplyDict = {1: "Aller Anfang ist schwer.",
