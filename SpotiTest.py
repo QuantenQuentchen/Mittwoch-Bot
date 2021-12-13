@@ -8,7 +8,7 @@ import pickle
 import discord.utils
 
 # discord.opus.load_opus()
-TOKEN = pickle.load(open("Token.p", "rb"))
+TOKEN = pickle.load(open("../../BotUser/Token.p", "rb"))
 intents = discord.Intents().all()
 client = commands.Bot(command_prefix="M!", intents=intents)
 VoiceClients = {}
