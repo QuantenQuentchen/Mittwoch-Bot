@@ -33,8 +33,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bf8641d-d3c5-4af3-a5c6-d45ce7e1c654" name="Default Changelist" comment="D">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="1bf8641d-d3c5-4af3-a5c6-d45ce7e1c654" name="Default Changelist" comment="A">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbedsGen.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbedsGen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +104,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\qquen\PycharmProjects\Mittwoch(3.0)\Mittwoch(2.0)" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.main">
     <configuration name="Database (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -459,7 +466,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639357173356</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="A">
+      <created>1639357423822</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1639357423822</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -488,7 +502,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Just abusing Discord Nothing to see here" />
     <MESSAGE value="Fixed read-only issue by using roles" />
     <MESSAGE value="Fixed read-only issue by using roles, Man fuck branches" />
     <MESSAGE value="Cleaned up a bit" />
@@ -513,6 +526,7 @@
     <MESSAGE value="Die liest doch eh niemand LMAO" />
     <MESSAGE value="Ähm" />
     <MESSAGE value="D" />
-    <option name="LAST_COMMIT_MESSAGE" value="D" />
+    <MESSAGE value="A" />
+    <option name="LAST_COMMIT_MESSAGE" value="A" />
   </component>
 </project>

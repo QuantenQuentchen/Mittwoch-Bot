@@ -76,17 +76,17 @@ async def on_ready():
     #                                                      cmd_name="setchannel",
     #                                                      description="Ändere den Mittwoch-Channel",
     #                                                      options=SlashOption)
-    #EckeDerSchandeID = 826069082984939590
-    #EckeDerSchande = client.get_channel(EckeDerSchandeID)
-    #QuantiID = 293443718319570964  # 318299815786053633
-    #Quanti = client.get_user(QuantiID)
-    #print(type(Quanti))
+    # EckeDerSchandeID = 826069082984939590
+    # EckeDerSchande = client.get_channel(EckeDerSchandeID)
+    # QuantiID = 293443718319570964  # 318299815786053633
+    # Quanti = client.get_user(QuantiID)
+    # print(type(Quanti))
     for Guild in client.guilds:
         Quanti = Guild.get_member(QuantiID)
         Database.AddEntry(Guild.id)
     # await Quanti.move_to(EckeDerSchande)
-    #for i in client.voice_clients:
-     #   print(i)
+    # for i in client.voice_clients:
+    #   print(i)
     # player = vc.create_ffmpeg_player('vuvuzela.mp3', after=lambda: print('done'))
     # player.start()
     '''
@@ -304,7 +304,15 @@ async def OmoriPing(ctx: SlashContext):
     await ctx.send(PingPong, embed=EmbedsGen.genOmoriPing(nichtIchList, ichList))
 
 
-IDList = [704975440963698768, 508365874223251457]
+@slash.slash(guild_ids=[919734517881778186, 701051127612964964, 776823258385088552],
+             description="Interessante Fakten über Diego Garcia")
+async def GarciaFacts(ctx: SlashContext):
+    await ctx.send(embed=EmbedsGen.genGarciaEmbed())
+
+
+@client.command(pass_context=True)
+async def GarciaFacts():
+    await ctx.send(embed=EmbedsGen.genGarciaEmbed())
 
 
 @slash.slash(guild_ids=[919734517881778186])
@@ -319,12 +327,7 @@ async def TestEmbed(ctx: SlashContext):
 
 @client.command(pass_context=True)
 async def TestEmbed():
-    nichtIchList = []
-    ichList = []
-    for ID in IDList:
-        nichtIchList.append(client.get_user(ID))
-    ichList.append(client.get_user(293443718319570964))
-    await ctx.send(embed=EmbedsGen.genOmoriPing(nichtIchList, ichList))
+    await ctx.send("LMAO")
 
 
 @tasks.loop(minutes=60)
