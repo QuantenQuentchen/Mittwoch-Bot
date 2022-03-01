@@ -79,11 +79,12 @@ async def on_ready():
 @client.command(pass_context=True)
 async def play(ctx):
     VoiceClient = discord.utils.get(client.voice_clients, guild=ctx.guild)
-    VoiceChannel = ctx.message.author.voice.channel
-    if VoiceClient is None:
-        await VoiceChannel.connect()
-        VoiceClient = discord.utils.get(client.voice_clients, guild=ctx.guild)
-    await LoopSchmoop(ctx, VoiceClient)
+    if ctx.message.author.voice is not None:
+        VoiceChannel = ctx.message.author.voice.channel
+        if VoiceClient is None:
+            await VoiceChannel.connect()
+            VoiceClient = discord.utils.get(client.voice_clients, guild=ctx.guild)
+        await LoopSchmoop(ctx, VoiceClient)
 
 
 async def LoopSchmoop(ctx, VoiceClient):
