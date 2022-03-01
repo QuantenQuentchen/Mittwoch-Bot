@@ -30,9 +30,9 @@ ReplyPicDict = {69: "69.gif",
                 420: "420.gif"}
 WordDict = {}
 CountList = ["naja", "tho", "lol", "fdp", "nice", "fuck", "ahhh", "hurensohn", "arcane", "genshin impact", "kino"]
-Fucking = True
+Fucking = False
 random.seed()
-Prefix = "M!"
+Prefix = "LMAO!"
 src = "Mittwoch/"
 intents = discord.Intents().all()
 client = commands.Bot(command_prefix=Prefix, description="Verkündet den wichtigsten Tag.", intents=intents)
@@ -52,7 +52,6 @@ EckeDerSchandeID = 826069082984939590
 EckeDerSchande = client.get_channel(EckeDerSchandeID)
 QuantiID = 293443718319570964  # 318299815786053633
 Quanti = client.get_user(QuantiID)
-VahloName = "*crying about it*"
 Troll = False
 for guild in client.guilds:
     List.append(guild.id)
@@ -66,56 +65,39 @@ ServerDict = {"ServerID": OptionDict}
 OmoriList = [704975440963698768, 293443718319570964, 508365874223251457]
 
 
-# """
-
 @client.event
 async def on_ready():
     await client.change_presence(activity=discord.Game(name="SlashCommands"))
     await slash.sync_all_commands(delete_from_unused_guilds=True)
-    # await discord_slash.manage_commands.add_slash_command(bot_id=client.user.id, bot_token=TOKEN, guild_id=None,
-    #                                                      cmd_name="setchannel",
-    #                                                      description="Ändere den Mittwoch-Channel",
-    #                                                      options=SlashOption)
-    # EckeDerSchandeID = 826069082984939590
-    # EckeDerSchande = client.get_channel(EckeDerSchandeID)
-    # QuantiID = 293443718319570964  # 318299815786053633
-    # Quanti = client.get_user(QuantiID)
-    # print(type(Quanti))
     for Guild in client.guilds:
+        Settings[Guild.id] = Database.getSettings(Guild.id)
         Quanti = Guild.get_member(QuantiID)
         Database.AddEntry(Guild.id)
-    # await Quanti.move_to(EckeDerSchande)
-    # for i in client.voice_clients:
-    #   print(i)
-    # player = vc.create_ffmpeg_player('vuvuzela.mp3', after=lambda: print('done'))
-    # player.start()
-    '''
-    for guild in client.guilds:
-        if guild.name == "ghost cave":
-            for channel in guild.channels:
-                if channel.id == 776889397479735317:
-                    print("JA")
-                    Finally = channel
-                    async for message in Finally.history(limit=10):
-                        if message.id == 776892471497326633:
-                            reactionSchwarz = message.reactions[0]
-                            await message.add_reaction(reactionSchwarz)
-    '''
     print("Done")
 
 
-# """
+@client.command(pass_context=True)
+async def play(ctx):
+    VoiceClient = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    VoiceChannel = ctx.message.author.voice.channel
+    if VoiceClient is None:
+        await VoiceChannel.connect()
+        VoiceClient = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    await LoopSchmoop(ctx, VoiceClient)
 
-"""
 
-@client.event
-async def on_ready():
-    for guild in client.guilds:
-        if guild.name == "Ghost Cave":
-            ChanChan = client.fetch_channel(Database.getMitChan(guild.id))
-            for _ in range(420):
-                await Vahlo.send(f"Fühlst du dich jetzt wichtig Vahlo ? {Vahlo.mention} \n Achso und bitte mach das Foto noch!!!")
-"""
+async def LoopSchmoop(ctx, VoiceClient):
+    await ctx.send('Playing: "FORTNITE SONG "Skybase" Standart Skill feat. Ayanda (Official Music Video)"')
+    await VoiceClient.play(discord.PCMVolumeTransformer(discord.FFmpegPCMAudio(f"OneAndOnly.mp3"), 0.5))
+    await LoopSchmoop(ctx, VoiceClient)
+
+
+@client.command(pass_context=True)
+async def EndeDenSchmerz(ctx):
+    VoiceClient = discord.utils.get(client.voice_clients, guild=ctx.guild)
+    if VoiceClient.is_connected():
+        await ctx.send(embed=EmbedsGen.genLeaveEmbed())
+        await VoiceClient.disconnect()
 
 
 @client.event
@@ -157,13 +139,13 @@ async def on_voice_state_update(member, before, after):
     MemId = []
     for meberino in channel.members:
         MemId.append(memberino.id)
-
-    if all(x in OmoriList for x in MemId) and len(MemId) == 2 and OmoriPing:
-        for CoolDud in OmoriList:
-            if CoolDud not in MemId:
-                Channel = Database.getMitChan(ServerID)
-                MissingPep = await client.get_user(CoolDud)
-                await Channel.send("")
+    if False:
+        if all(x in OmoriList for x in MemId) and len(MemId) == 2 and OmoriPing:
+            for CoolDud in OmoriList:
+                if CoolDud not in MemId:
+                    Channel = Database.getMitChan(ServerID)
+                    MissingPep = await client.get_user(CoolDud)
+                    await Channel.send("")
 
     if False:
         if member.id == VahloID:
@@ -183,19 +165,13 @@ async def on_voice_state_update(member, before, after):
                         "preferredquality": "192",
                     }],
                 }
-
-                # with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-                # ydl.download([url])
-                # for file in os.listdir("./"):
-                # if file.endswith(".mp3"):
-                # os.rename(file, "song.mp3")
                 player = await YTDLSource.from_url(url, loop=client.loop, stream=True)
                 voiceClient.play(player)
                 await asyncio.sleep(30)
                 await VoiceChannel.disconnect()
 
 
-@client.command(pass_context=True)  # , description=Description, name=self.command, aliases=self.aliases)
+@client.command(pass_context=True)
 async def Channel(ctx):
     Chan = client.get_channel(Database.getMitChan(ctx.guild.id))
     await ctx.send(
@@ -203,18 +179,7 @@ async def Channel(ctx):
         f"Channel].")
 
 
-"""
-@client.event
-async def on_member_update(before, after):
-    if before.id == VahloID:
-        print("Haha")
-        if not after.nick == VahloName:
-            await before.edit(nick=VahloName)
-            await after.edit(nick=VahloName)
-"""
-
-
-@client.command(pass_context=True)  # , description=Description, name=self.command, aliases=self.aliases)
+@client.command(pass_context=True)
 async def SetChannel(ctx, channel: discord.TextChannel):
     text_channel_list = []
     Chan = client.get_channel(Database.getMitChan(ctx.guild.id))
@@ -226,39 +191,6 @@ async def SetChannel(ctx, channel: discord.TextChannel):
     else:
         await ctx.send(f"Bitte benutze einen Channl der Existiert und auf den der Bot zugriff hat.\nDer Mittwoch "
                        f"Channel bleibt {Chan.mention}")
-
-
-"""
-@client.command(pass_context=True)
-async def Test(ctx, url):
-    VoiceChannel = ctx.message.author.voice.channel
-    VoiceClient = await VoiceChannel.connect()
-    print(ctx.voice_client.source)
-    guild = ctx.message.guild
-    voiceClient = discord.utils.get(client.voice_clients, guild=ctx.guild)
-    players[guild.id] = voiceClient
-
-    ydl_opts = {
-        "outtmpl": f"/{ctx.guild.id}",
-        "format": "bestaudio/best",
-        "postprocessors": [{
-            "key": "FFmpegExtractAudio",
-            "preferredcodec": "mp3",
-            "preferredquality": "192",
-        }],
-    }
-
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        ydl.download([url])
-    for file in os.listdir("/"):
-        if file.endswith(".mp3"):
-            os.rename(file, "song.mp3")
-    print(type(ctx.voice_client.source))
-    Player = YTDLSource(VoiceClient.source, data=ydl_opts)
-    print(Player)
-    await voiceClient.play(Player.from_url(url))
-    # player.start()
-"""
 
 
 @slash.slash(guild_ids=[701051127612964964, 776823258385088552])

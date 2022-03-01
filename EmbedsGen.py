@@ -1,5 +1,5 @@
 import random
-
+import time
 import discord
 import Database
 
@@ -17,7 +17,7 @@ AddingDict = {
 
 FunnyFact = [
     "Diego stammt ursprünglich aus dem altgriechischen und hebräischen. Der Name Diego leitet sich von dem hebräischen Namen Jakobus den Älteren ab, der im mittelalterlichen Spanisch als Sant Yago beziehungsweise Santiago bezeichnet wurde. Somit ist Diego die spanische Form von Jakob.",
-    "Leute die Diego heißen haben eine 100% höhere Chance das man sie mit der besten Insel aller Zeiten verwechselt im Vergleich Leute die Dave, Dietmar oder Kevin heißen.",
+    "Leute die Diego heißen haben eine 100% höhere Chance das man sie mit der besten Insel aller Zeiten verwechselt im Vergleich mit Leute die Dave, Dietmar oder Kevin heißen.",
     "Der männliche Vorname Diego hat mehrere Bedeutungen. Diego kann als der Lehrende, der Betrüger, der vor Gott schützende oder der Fersenhalter übersetzt werden.",
     "Bekannte Persönlichkeiten mit dem Namen Diego: \n-Diego bekannt aus Ice Age (ja das ist der Film mit Valentin)\n -Diego Ramos bekannt als Schauspieler und besitzer des spanischten Namens in ganz Argentinien. \n -Und natürlich Diego Garcia das einzige Opfer des 2004 Tsunamis in Indonesien aus Diego Garcia.",
     "Der englische Wikipedia Eintrag ist 4.577 Fach so lang wie der deutsche. Außerdem kommt im englischen Artikel das Wort diego 208 aber das wort garcia nur 206 mal vor. Wer wohl Diego Diego ist ?",
@@ -33,7 +33,7 @@ hotGarciaPics = [
     "https://www.borgenmagazine.com/wp-content/uploads/2016/10/Diego-Garcia-The-Poverty-of-a-Kidnapped-Nation.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/2/22/GEODSS_Diego_Garcia_2006-05-01.jpg",
     "https://www.travelbook.de/data/uploads/2020/05/bildschirmfoto-2020-05-15-um-10.33.17_1589532015.jpg",
-    "https://static.wikia.nocookie.net/halo/images/f/f9/Diego_Garcia.jpg/revision/latest?cb=20110806172438&path-prefix=de",
+    "https://static.wikia.nocookie.net/halo/images/f/f9/Diego_Garcia.jpg/revision/latest?cb=20110806172438&path/-prefix=de",
     "https://www.lowyinstitute.org/sites/default/files/6256855435_0645fa0fed_o.jpg",
     "https://upload.wikimedia.org/wikipedia/commons/a/aa/Nasa_diego_garcia.jpg",
     "https://media-cdn.tripadvisor.com/media/photo-c/2560x500/05/3a/4f/8b/diego-garcia.jpg",
@@ -95,3 +95,13 @@ def genGarciaEmbed():
     if i == len(FunnyFact):
         i = 0
     return returnEmbed
+
+
+def genMittwochEmbed():
+    MittwochEmbed = discord.embeds.Embed(title= "Mittwoch Mutterficker")
+    MittwochEmbed.set_image()
+
+def genLeaveEmbed():
+    LeaveEmbed = discord.embeds.Embed(title= "Pain")
+    LeaveEmbed.set_image(url=Database.getRandoTenorGif("Depression"))
+    return LeaveEmbed

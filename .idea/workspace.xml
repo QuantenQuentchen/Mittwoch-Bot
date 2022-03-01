@@ -33,9 +33,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bf8641d-d3c5-4af3-a5c6-d45ce7e1c654" name="Default Changelist" comment="A">
+    <list default="true" id="1bf8641d-d3c5-4af3-a5c6-d45ce7e1c654" name="Default Changelist" comment="D">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EmbedsGen.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbedsGen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,10 +90,10 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/SpotiTest.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/requirements.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Procfile" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/main.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Troll.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/requirements.txt" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1nwN9weGp3FWpSoKTT8V3wXAp9B" />
   <component name="ProjectViewState">
@@ -106,6 +107,9 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\qquen\PycharmProjects\Mittwoch(3.0)\Mittwoch(2.0)" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\qquen\PycharmProjects\Mittwoch(3.0)\Mittwoch(2.0)" />
     </key>
@@ -473,7 +477,42 @@
       <option name="project" value="LOCAL" />
       <updated>1639357423822</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="A">
+      <created>1639414160554</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1639414160554</updated>
+    </task>
+    <task id="LOCAL-00033" summary="N">
+      <created>1639414500813</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1639414500813</updated>
+    </task>
+    <task id="LOCAL-00034" summary="A">
+      <created>1639414845516</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1639414845516</updated>
+    </task>
+    <task id="LOCAL-00035" summary="I">
+      <created>1639415039521</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1639415039521</updated>
+    </task>
+    <task id="LOCAL-00036" summary="D">
+      <created>1639426173389</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1639426173389</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -502,8 +541,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixed read-only issue by using roles" />
-    <MESSAGE value="Fixed read-only issue by using roles, Man fuck branches" />
     <MESSAGE value="Cleaned up a bit" />
     <MESSAGE value="Fuck Intents" />
     <MESSAGE value="No Honestly Fuck Intents" />
@@ -525,8 +562,10 @@
     <MESSAGE value="Fixed Security Leak and Stupid" />
     <MESSAGE value="Die liest doch eh niemand LMAO" />
     <MESSAGE value="Ähm" />
-    <MESSAGE value="D" />
+    <MESSAGE value="N" />
     <MESSAGE value="A" />
-    <option name="LAST_COMMIT_MESSAGE" value="A" />
+    <MESSAGE value="I" />
+    <MESSAGE value="D" />
+    <option name="LAST_COMMIT_MESSAGE" value="D" />
   </component>
 </project>

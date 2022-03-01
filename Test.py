@@ -5,7 +5,7 @@ import Database
 
 tenorApikey = "E43EM9PO00HC"
 
-search_term = "omori"
+# search_term = "omori"
 
 
 def getRandoTenorGif(searchTerm):
