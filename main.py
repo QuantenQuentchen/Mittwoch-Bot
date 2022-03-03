@@ -33,7 +33,7 @@ CountList = ["naja", "tho", "lol", "fdp", "nice", "fuck", "ahhh", "hurensohn", "
 Fucking = False
 random.seed()
 Prefix = "LMAO!"
-src = "Mittwoch/"
+src = "xD/"
 intents = discord.Intents().all()
 client = commands.Bot(command_prefix=Prefix, description="Verkündet den wichtigsten Tag.", intents=intents)
 slash = SlashCommand(client, sync_commands=True)

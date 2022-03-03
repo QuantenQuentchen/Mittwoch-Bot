@@ -99,7 +99,7 @@ def getAllCount(UserID):
     cur.execute(CheckUserQuery, CheckUserData)
     if cur.fetchall()[0][0]:
         cur.execute(CountRequest, CountData)
-        return dict(sorted(dict(cur.fetchall()).items()))
+        return dict(sorted(dict(cur.fetchall()).items(), reverse=True))
     else:
         return None
 
@@ -218,6 +218,9 @@ def getRandoTenorGif(searchTerm):
     else:
         return None
 
+
+def getSettings(guildID):
+    pass
 
 if __name__ == "__main__":
     # print(getLast(776823258385088552))

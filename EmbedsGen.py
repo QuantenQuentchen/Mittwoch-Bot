@@ -119,6 +119,6 @@ def genCounterEmbed(member):
     returnEmbed = discord.embeds.Embed(title= "Dein ganz persönlicher Word-Counter", COLOR=discord.Colour.gold())
     returnEmbed.add_field(name="Top 3:", value=Top3)
     returnEmbed.add_field(name="All:", value=LongStr)
-    returnEmbed.set_author(name=f"Made for {member.name}", icon_url=member.default_avatar_url)
+    returnEmbed.set_footer(text=f"Made for {member.name}", icon_url=member.avatar_url)
     returnEmbed.set_thumbnail(url="https://cdn.mos.cms.futurecdn.net/LsBqeNKPFjosmaNcCGXcS7.jpeg")
     return returnEmbed

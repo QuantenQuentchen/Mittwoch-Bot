@@ -33,7 +33,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bf8641d-d3c5-4af3-a5c6-d45ce7e1c654" name="Default Changelist" comment="Mega Smart2" />
+    <list default="true" id="1bf8641d-d3c5-4af3-a5c6-d45ce7e1c654" name="Default Changelist" comment="Smarte Tomate">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database.py" beforeDir="false" afterPath="$PROJECT_DIR$/Database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EmbedsGen.py" beforeDir="false" afterPath="$PROJECT_DIR$/EmbedsGen.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -542,7 +546,21 @@
       <option name="project" value="LOCAL" />
       <updated>1646325783244</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Mega Smart2">
+      <created>1646325907264</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1646325907264</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Smarte Tomate">
+      <created>1646326697159</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1646326697159</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -571,7 +589,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Small fixes" />
     <MESSAGE value="Fixed Timezones" />
     <MESSAGE value="Added more Mittwoch" />
     <MESSAGE value="Added GC" />
@@ -596,6 +613,7 @@
     <MESSAGE value="Opus Buildpack and less annoying" />
     <MESSAGE value="Mega Smart" />
     <MESSAGE value="Mega Smart2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mega Smart2" />
+    <MESSAGE value="Smarte Tomate" />
+    <option name="LAST_COMMIT_MESSAGE" value="Smarte Tomate" />
   </component>
 </project>
