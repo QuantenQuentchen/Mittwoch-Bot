@@ -148,8 +148,6 @@ async def on_voice_state_update(member, before, after):
                     Channel = Database.getMitChan(ServerID)
                     MissingPep = await client.get_user(CoolDud)
                     await Channel.send("")
-
-    if False:
         if member.id == VahloID:
             if not after.channel == None or after.channel == EckeDerSchande:
                 await member.move_to(EckeDerSchande)
@@ -301,7 +299,6 @@ async def counter(ctx):
 @client.command(pass_context=True)
 async def counter(ctx):
     await ctx.reply(Embed=EmbedsGen.genCounterEmbed(ctx.author))
-
 
 Mittwoch_check.start()
 client.run(TOKEN)
