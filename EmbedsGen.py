@@ -101,7 +101,24 @@ def genMittwochEmbed():
     MittwochEmbed = discord.embeds.Embed(title= "Mittwoch Mutterficker")
     MittwochEmbed.set_image()
 
+
 def genLeaveEmbed():
     LeaveEmbed = discord.embeds.Embed(title= "Pain")
     LeaveEmbed.set_image(url=Database.getRandoTenorGif("Depression"))
     return LeaveEmbed
+
+
+def genCounterEmbed(member):
+    CounterDicts = Database.getAllCount(member.id)
+    Top3 = ""
+    LongStr = ""
+    for idx, (num, name) in enumerate(CounterDicts.items()):
+        if idx <= 2:
+            Top3 += f"{name.capitalize()}: {num}\n"
+        LongStr += f"{name.capitalize()}: {num}\n"
+    returnEmbed = discord.embeds.Embed(title= "Dein ganz persönlicher Word-Counter", COLOR=discord.Colour.gold())
+    returnEmbed.add_field(name="Top 3:", value=Top3)
+    returnEmbed.add_field(name="All:", value=LongStr)
+    returnEmbed.set_author(name=f"Made for {member.name}", icon_url=member.default_avatar_url)
+    returnEmbed.set_thumbnail(url="https://cdn.mos.cms.futurecdn.net/LsBqeNKPFjosmaNcCGXcS7.jpeg")
+    return returnEmbed

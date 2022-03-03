@@ -67,11 +67,10 @@ def toggleBoolOption(ServerID, Option, Toggle):
 
 
 def getCount(UserID, Countable):
-
     CountRequest = "SELECT Counter FROM WordCounter WHERE UserID = %s AND Countable = %s;"
     CountData = (UserID, Countable)
     CheckUserQuery = "SELECT EXISTS(SELECT 1 FROM WordCounter WHERE UserID = %s AND Countable = %s);"
-    CheckUserData = (UserID,Countable)
+    CheckUserData = (UserID, Countable)
     InsertAll = "INSERT INTO WordCounter (UserID, Countable, Counter) VALUES (%s, %s, %s);"
 
     cur.execute(CheckUserQuery, CheckUserData)
@@ -83,6 +82,26 @@ def getCount(UserID, Countable):
         con.commit()
         cur.execute(CountRequest, CountData)
         return cur.fetchall()[0][0]
+
+
+def Convert(tup, di):
+    for a, b in tup:
+        di.setdefault(a, []).append(b)
+    return di
+
+
+def getAllCount(UserID):
+    CountRequest = "SELECT Counter, Countable FROM WordCounter WHERE UserID = %s;"
+    CountData = (UserID,)
+    CheckUserQuery = "SELECT EXISTS(SELECT 1 FROM WordCounter WHERE UserID = %s);"
+    CheckUserData = (UserID,)
+
+    cur.execute(CheckUserQuery, CheckUserData)
+    if cur.fetchall()[0][0]:
+        cur.execute(CountRequest, CountData)
+        return dict(sorted(dict(cur.fetchall()).items()))
+    else:
+        return None
 
 
 def UpdateCount(UserID, Countable, Count):
@@ -183,7 +202,7 @@ def getRandoTenorGif(searchTerm):
         top_8gifs = json.loads(r.content)
         json.dump(json.loads(r.content), open("Testerino.json", "w"))
         RandoNum = randoMod(49)
-        RandoNum = random.randint(0,49)
+        RandoNum = random.randint(0, 49)
         print(RandoNum)
         try:
             return top_8gifs["results"][RandoNum]["media"][0]["mediumgif"]["url"]

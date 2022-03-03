@@ -117,8 +117,9 @@ async def on_message(message):
             for key, val in ReplyPicDict.items():
                 if WordCount == key:
                     ReplyFile = discord.File(val)
-            await message.reply(WordText, mention_author=False, file=ReplyFile)
             Database.UpdateCount(message.author.id, word, WordCount)
+            if WordText is not f"Das ist dein {WordCount}. {word}." or ReplyFile is not None:
+                await message.reply(WordText, mention_author=False, file=ReplyFile)
 
     if Troll:
         if message.author.id == VahloID:
@@ -291,6 +292,15 @@ async def Mittwoch_check():
             # await client.change_presence(activity=discord.Game(name="Fortnait"))
             await client.change_presence(activity=discord.Game(name="SlashCommands"))
 
+
+@slash.slash(guild_ids=[701051127612964964, 776823258385088552])
+async def counter(ctx):
+    ctx.reply(Embed=EmbedsGen.genCounterEmbed(ctx.author))
+
+
+@client.command(pass_context=True)
+async def counter(ctx):
+    ctx.reply(Embed=EmbedsGen.genCounterEmbed(ctx.author))
 
 Mittwoch_check.start()
 client.run(TOKEN)

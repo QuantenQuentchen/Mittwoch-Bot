@@ -16,7 +16,7 @@ def getRandoTenorGif(searchTerm):
         # load the GIFs using the urls for the smaller GIF sizes
         top_8gifs = json.loads(r.content)
         # json.dump(r.content, "Testerino.json")
-        json.dump(top_8gifs, open("Testerino.json", "w"), indent=True)
+        #json.dump(top_8gifs, open("Testerino.json", "w"), indent=True)
         return top_8gifs["results"][Database.randoMod(100)]["media"][0]["mediumgif"]["url"]
     else:
         return None
