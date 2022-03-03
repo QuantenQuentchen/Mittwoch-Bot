@@ -33,10 +33,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bf8641d-d3c5-4af3-a5c6-d45ce7e1c654" name="Default Changelist" comment="Mega Smart">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="1bf8641d-d3c5-4af3-a5c6-d45ce7e1c654" name="Default Changelist" comment="Mega Smart2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -531,7 +528,21 @@
       <option name="project" value="LOCAL" />
       <updated>1646325387107</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Mega Smart">
+      <created>1646325702117</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1646325702117</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Mega Smart2">
+      <created>1646325783244</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1646325783244</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -560,7 +571,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixed Bool stuff" />
     <MESSAGE value="Small fixes" />
     <MESSAGE value="Fixed Timezones" />
     <MESSAGE value="Added more Mittwoch" />
@@ -585,6 +595,7 @@
     <MESSAGE value="ffmpeg Buildpack amen" />
     <MESSAGE value="Opus Buildpack and less annoying" />
     <MESSAGE value="Mega Smart" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mega Smart" />
+    <MESSAGE value="Mega Smart2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mega Smart2" />
   </component>
 </project>
