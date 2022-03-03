@@ -60,7 +60,7 @@ OptionDict = {
     "Fucking": False,
     "Troll": []
 }
-
+Settings = {}
 ServerDict = {"ServerID": OptionDict}
 OmoriList = [704975440963698768, 293443718319570964, 508365874223251457]
 
@@ -293,12 +293,12 @@ async def Mittwoch_check():
 
 @slash.slash(guild_ids=[701051127612964964, 776823258385088552, 919734517881778186])
 async def counter(ctx):
-    await ctx.reply(EmbedsGen.genCounterEmbed(ctx.author))
+    await ctx.reply(embed=EmbedsGen.genCounterEmbed(ctx.author))
 
 
 @client.command(pass_context=True)
 async def counter(ctx):
-    await ctx.reply(Embed=EmbedsGen.genCounterEmbed(ctx.author))
+    await ctx.reply(embed=EmbedsGen.genCounterEmbed(ctx.author))
 
 Mittwoch_check.start()
 client.run(TOKEN)
