@@ -11,7 +11,6 @@ import Database
 from discord_slash import SlashCommand, SlashContext
 import os
 import asyncio
-
 import EmbedsGen
 
 TOKEN = pickle.load(open("Token.p", "rb"))
@@ -63,6 +62,8 @@ OptionDict = {
 Settings = {}
 ServerDict = {"ServerID": OptionDict}
 OmoriList = [704975440963698768, 293443718319570964, 508365874223251457]
+Reminders = {508365874223251457: [6, "CWIMI ABEND"],
+             508365874223251457: [3, "CWIMI ABEND"]}
 
 
 @client.event
@@ -134,13 +135,26 @@ async def on_message(message):
             await message.reply("Die Stadt ?", mention_author=False, )
     await client.process_commands(message)
 
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+    print(message.mentions)
+    for ReminderUser, Reminder in Reminders.items():
+        for mention in message.mentions:
+            print(mention.id, ReminderUser, Reminder)
+            if mention.id == ReminderUser and Reminder[0] == dt.now().weekday():
+                print("Haha")
+                await message.reply(Reminder[1])
 
 @client.event
 async def on_voice_state_update(member, before, after):
     members = after.channel.members
     MemId = []
-    for meberino in channel.members:
-        MemId.append(memberino.id)
+    for meberino in after.channel.members:
+        MemId.append(meberino.id)
+    for meberino in before.channel.members:
+        MemId.append(meberino.id)
     if False:
         if all(x in OmoriList for x in MemId) and len(MemId) == 2 and OmoriPing:
             for CoolDud in OmoriList:
@@ -258,8 +272,9 @@ async def TestEmbed(ctx: SlashContext):
 
 
 @client.command(pass_context=True)
-async def TestEmbed():
-    await ctx.send("LMAO")
+async def TestEmbed(ctx):
+    print(ctx)
+    await ctx.send(file=discord.File(EmbedsGen.genCounterImg(ctx.author), "3UhrMOrgensDrip.gif"))
 
 
 @tasks.loop(minutes=60)

@@ -2,6 +2,12 @@ import random
 import time
 import discord
 import Database
+from PIL import Image, ImageSequence
+from PIL import ImageFont
+from PIL import ImageDraw
+from io import BytesIO
+from imgur_python import Imgur
+import requests
 
 OmoriDict = {
     704975440963698768: "Aubrey",
@@ -98,12 +104,12 @@ def genGarciaEmbed():
 
 
 def genMittwochEmbed():
-    MittwochEmbed = discord.embeds.Embed(title= "Mittwoch Mutterficker")
+    MittwochEmbed = discord.embeds.Embed(title="Mittwoch Mutterficker")
     MittwochEmbed.set_image()
 
 
 def genLeaveEmbed():
-    LeaveEmbed = discord.embeds.Embed(title= "Pain")
+    LeaveEmbed = discord.embeds.Embed(title="Pain")
     LeaveEmbed.set_image(url=Database.getRandoTenorGif("Depression"))
     return LeaveEmbed
 
@@ -116,9 +122,95 @@ def genCounterEmbed(member):
         if idx <= 2:
             Top3 += f"{name.capitalize()}: {num}\n"
         LongStr += f"{name.capitalize()}: {num}\n"
-    returnEmbed = discord.embeds.Embed(title= "Dein ganz persönlicher Word-Counter", COLOR=discord.Colour.gold())
+    returnEmbed = discord.embeds.Embed(title="Dein ganz persönlicher Word-Counter", color=discord.Colour.gold())
     returnEmbed.add_field(name="Top 3:", value=Top3)
     returnEmbed.add_field(name="All:", value=LongStr)
     returnEmbed.set_footer(text=f"Made for {member.name}", icon_url=member.avatar_url)
     returnEmbed.set_thumbnail(url="https://cdn.mos.cms.futurecdn.net/LsBqeNKPFjosmaNcCGXcS7.jpeg")
     return returnEmbed
+
+
+def genCounterImg(member):
+    AvatarOffsetY = 0
+    AvatarOffsetX = 0
+    Top1OffY = 3
+    Top1OffX = 3
+    Top1Perc = 10
+    Top2OffY = 6
+    Top2OffX = 6
+    Top2Perc = 12
+    Top3OffY = 9
+    Top3OffX = 9
+    Top3Perc = 99
+    #barImg = Image.open("Resources/Bar.jpeg")
+    barBB = (200, 30)
+    #100/
+    """
+   
+    def ImgManipulation(input: Image, avatar: Image, Top3: dict, mainDic: dict):
+
+        x, y = avatar.size
+        AvatarOffset = (AvatarOffsetY, AvatarOffsetX, x, y)
+
+        input.convert("RGB").save(inptStream, format="JPEG")
+        inptStream.seek(0)
+        inptImage = Image.open(intStream)
+        
+        avatar.convert("RGB").save(avtStream, format="JPEG")
+        avtStream.seek(0)
+        avtImage = Image.open(avtStream)
+    
+    """
+    with open("Resources/Background.png", "rb") as f:
+        background = Image.open(f)
+        draw = ImageDraw.Draw(background)
+        avatarReqResponse = requests.get(member.avatar_url)
+        avatarImg = Image.open(BytesIO(avatarReqResponse.content))
+        print(background.info)
+        print(avatarImg.info)
+        """
+            Basic Drawing Stuff
+        """
+
+        """
+            Still Image Editing
+        """
+
+        """
+            Image Pasting
+        """
+
+        if str(member.avatar_url).split("?size")[0].endswith(".gif"):
+            gifFrames = []
+            x, y = avatarImg.size
+            AvatarOffset = (AvatarOffsetY, AvatarOffsetX, x, y)
+            Mask = None
+            idx = 0
+            frameStream = BytesIO()
+            for frame in ImageSequence.Iterator(avatarImg):
+                frame.convert("RGB").save(frameStream, format="JPEG")
+                frameStream.seek(0)
+                framePic = Image.open(frameStream)
+                background.paste(framePic, box=AvatarOffset)
+                Test = background
+                """
+                Gif Editing
+                """
+                print(Test)
+                gifFrames.append(Test)
+                del(Test)
+                idx = idx + 1
+            outputStream = BytesIO()
+            print(gifFrames)
+            gifFrames[0].save(outputStream, format="GIF", save_all=True, optimize=False,
+                              duration=avatarImg.info["duration"], loop=True,
+                              append_images=gifFrames[1:])
+            outputStream.seek(0)
+            return outputStream
+        else:
+            background.paste(avatarImg)
+            avatarImg.paste(background)
+            background.save("Test.jpg")
+            avatarImg("wda.jpg")
+
+        return background
